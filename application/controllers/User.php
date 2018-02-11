@@ -81,9 +81,9 @@ class User extends CI_Controller
         }
     }
      
-        public function delete($userID)
+        public function delete($userId)
     {
-        $result = $this->user_model->delete($userID);
+        $result = $this->user_model->delete($userId);
         if ($result) {
             redirect('/user');
         } else {

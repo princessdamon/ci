@@ -11,9 +11,9 @@ class User_model extends CI_Model
         return $users;
     }
 
-    public function getUserByID($userID)
+    public function getUserByID($userId)
     {
-        $query = "SELECT * FROM users WHERE user_id = '$userID'";
+        $query = "SELECT * FROM users WHERE user_id = '$userId'";
         return $this->db->query($query);
     }
     
