@@ -51,12 +51,12 @@ class User_model extends CI_Model
     return $this->db->query($query);
 }
 
-   // Auth
-   public function checkLogin($username, $password)
-   {
-       $query = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
-       return $this->db->query($query);
-   }
+// Auth
+public function checkLogin($username, $password)
+{
+    $query = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
+    return $this->db->query($query);
+}
 
 }
 
