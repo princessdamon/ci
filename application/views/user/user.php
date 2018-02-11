@@ -1,6 +1,4 @@
 <h1>รายชื่อหมีน้อยในโครงการ</h1>
-    
-
         <div class="alert alert-warning" role="alert">
             lovely
             <3 <3 </div>
@@ -11,6 +9,7 @@
                     <thead>
                         <tr>
                             <th><i class="far fa-compass "></i></th>
+                            <th>ชื่อผู้ใช้</th>
                             <th>ชื่อ - สกุล</th>
                             <th>อีเมล</th>
                             <th>อายุ</th>
@@ -22,6 +21,7 @@
         <tbody>
         <?php foreach ($users->result() as $user){?>
             <tr>
+                <td><?php echo $user->user_type_id ?></td>
                 <td><?php echo $user->user_id ?></td>
                 <td><?php echo $user->fullname ?></td>
                 <td><?php echo $user->email ?></td>

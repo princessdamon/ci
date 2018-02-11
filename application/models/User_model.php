@@ -16,22 +16,29 @@ class User_model extends CI_Model
     }
     
     public function insertUser($data)
-{
-    $fullname = $data['fullname'];
-    $email = $data['email'];
-    $age =$data['age'];
-    $query = "INSERT INTO users (fullname, email, age) values ('$fullname', '$email', '$age')";
-    return $this->db->query($query);
-}
+   {
+       $fullname = $data['fullname'];
+       $email = $data['email'];
+       $age = $data['age'];
+       $username = $data['username'];
+       $password = $data['password'];
+       $pic = '';
+       $query = "INSERT INTO users (username, password, pic, fullname, email, age) VALUES ('$username', '$password','$pic','$fullname', '$email', '$age')";
+       return $this->db->query($query);
+   }
 
-    public function update($userId, $data)
+    public function update($userID, $data)
 {
     $fullname = $data['fullname'];
     $email = $data['email'];
     $age = $data['age'];
-    $query = "UPDATE users SET fullname = '$fullname', email = '$email', age = '$age' WHERE user_id = '$userId'";
+    $username = $data['username'];
+    $password = $data['password'];
+    $pic = '';
+    $query = "UPDATE users SET username ='$username', password = '$password', pic = '$pic', fullname = '$fullname', email = '$email', age = '$age' WHERE user_id = '$userID'";
     return $this->db->query($query);
 }
+
 
       
     public function delete($userID)
@@ -39,7 +46,16 @@ class User_model extends CI_Model
     $query = "DELETE FROM users WHERE user_id = '$userID'";
     return $this->db->query($query);
 }
-  
+
+   // Auth
+   public function checkLogin($username, $password)
+   {
+       $query = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
+       return $this->db->query($query);
+   }
+
 }
+
+   
 
 

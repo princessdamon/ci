@@ -1,30 +1,29 @@
 <form action="/user/update/<?php echo $user->user_id ?>" method="post">
 <div class="row">
 <div class="col-8">
-    <form action="/user/update/" method="post">
-        <label>ชื่อ - นามสกุล</label>
-        <div class="form-row">
-            <div class="col">
-                <input  value = "<?php echo $user->fullname ?>"name="fullname" type="text" class="form-control" placeholder="Name">
-            </div>
-            
-        </div>
-        <div class="form-group">
-            <label>อีเมล์</label>
-            <input value = "<?php echo $user->email ?>" name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-        </div>
-        <div class="form-row align-items-center">
-            <div class="col-auto my-1">
-                <label>อายุ</label>
-                <input  value="<?php echo $user->age ?>" name="age" type="number" class="form-control" placeholder="กรอกอายุ">
-            </div>
-
-        </div>
-        <hr>
-        <button type="submit" class="btn btn-primary">บันทึก</button>
-        <hr>
-    </form>
+<form action="/user/update/<?php echo $user->user_id ?>" method="post">
+                   <div class="form-group">
+                       <label>ชื่อผู้ใช้</label>
+                       <input  value="<?php echo $user->username ?>"  name="username" type="text" class="form-control" placeholder="กรอกชื่อผู้ใช้">
+                   </div>
+                   <div class="form-group">
+                       <label>รหัสผ่าน</label>
+                       <input  value="<?php echo $user->password ?>"  name="password" type="password" class="form-control" placeholder="กรอกรหัสผ่าน">
+                   </div>
+                   <div class="form-group">
+                       <label>ชื่อ</label>
+                       <input value="<?php echo $user->fullname ?>" name="fullname" type="text" class="form-control" placeholder="กรอกชื่อ สกุล">
+                   </div>
+                   <div class="form-group">
+                       <label>อีเมล์</label>
+                       <input  value="<?php echo $user->email ?>" name="email" type="email" class="form-control" placeholder="กรอกอีเมล์">
+                   </div>
+                   <div class="form-group">
+                       <label>อายุ</label>
+                       <input  value="<?php echo $user->age ?>" name="age" type="number" class="form-control" placeholder="กรอกอายุ">
+                   </div>
+                   <button type="submit" class="btn btn-primary">บันทึก</button>
+           </form>
 </div>
 <div class="col-4">
     <ul class="list-group">
