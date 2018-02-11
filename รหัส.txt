@@ -1,0 +1,5 @@
+
+user  b73ff016af85e6
+password  c42d64f2
+hostname   us-cdbr-iron-east-05.cleardb.net
+dbname   heroku_8009a25bd31cd1b?reconnect=true
