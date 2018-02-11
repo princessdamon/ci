@@ -4,7 +4,9 @@ class User_model extends CI_Model
 {
     public function getUser()
     {
-        $query = "SELECT * FROM users";
+        $query = "SELECT * FROM users 
+                  INNER JOIN user_types
+                  ON users.user_type_id = user_types.user_type_id";
         $users = $this->db->query($query);
         return $users;
     }
@@ -16,34 +18,36 @@ class User_model extends CI_Model
     }
     
     public function insertUser($data)
-   {
-       $fullname = $data['fullname'];
-       $email = $data['email'];
-       $age = $data['age'];
-       $username = $data['username'];
-       $password = $data['password'];
-       $pic = '';
-       $query = "INSERT INTO users (username, password, pic, fullname, email, age) VALUES ('$username', '$password','$pic','$fullname', '$email', '$age')";
-       return $this->db->query($query);
-   }
+    {
+        $fullname = $data['fullname'];
+        $email = $data['email'];
+        $age = $data['age'];
+        $user_type_id['user_type_id'];
+        $username = $data['username'];
+        $password = $data['password'];
+        $pic = '';
+        $query = "INSERT INTO users (user_type_id, username, password, pic, fullname, email, age) VALUES ('$user_type_id','$username', '$password','$pic','$fullname', '$email', '$age')";
+        return $this->db->query($query);
+    }
 
-    public function update($userID, $data)
+    public function update($userId, $data)
 {
     $fullname = $data['fullname'];
     $email = $data['email'];
     $age = $data['age'];
+    $user_type_id['user_type_id'];
     $username = $data['username'];
     $password = $data['password'];
     $pic = '';
-    $query = "UPDATE users SET username ='$username', password = '$password', pic = '$pic', fullname = '$fullname', email = '$email', age = '$age' WHERE user_id = '$userID'";
+    $query = "UPDATE users SET user_type_id = '$user_type_id', username ='$username', password = '$password', pic = '$pic', fullname = '$fullname', email = '$email', age = '$age' WHERE user_id = '$userId'";
     return $this->db->query($query);
 }
 
 
       
-    public function delete($userID)
+    public function delete($userId)
 {
-    $query = "DELETE FROM users WHERE user_id = '$userID'";
+    $query = "DELETE FROM users WHERE user_id = '$userId'";
     return $this->db->query($query);
 }
 
